@@ -30,6 +30,7 @@
 #include "google/rpc/status.pb.h"
 
 #include "cuttlefish/common/libs/fs/shared_fd.h"
+#include "cuttlefish/common/libs/utils/device_type.h"
 #include "cuttlefish/common/libs/utils/files.h"
 #include "cuttlefish/host/commands/assemble_cvd/proto/guest_config.pb.h"
 #include "cuttlefish/host/frontend/webrtc/audio_handler.h"
@@ -393,6 +394,8 @@ int CuttlefishMain() {
   StreamerConfig streamer_config;
 
   streamer_config.device_id = instance.webrtc_device_id();
+  streamer_config.device_type =
+      std::string(DeviceTypeToStringView(instance.device_type()));
   streamer_config.client_files_port = client_server->port();
   streamer_config.tcp_port_range = instance.webrtc_tcp_port_range();
   streamer_config.udp_port_range = instance.webrtc_udp_port_range();
