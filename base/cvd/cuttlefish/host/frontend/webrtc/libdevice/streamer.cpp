@@ -57,6 +57,7 @@ constexpr auto kDisplaysField = "displays";
 constexpr auto kTouchpadsField = "touchpads";
 constexpr auto kAudioStreamsField = "audio_streams";
 constexpr auto kHardwareField = "hardware";
+constexpr auto kDeviceTypeField = "device_type";
 constexpr auto kOpenwrtDeviceIdField = "openwrt_device_id";
 constexpr auto kOpenwrtAddrField = "openwrt_addr";
 constexpr auto kAdbPortField = "adb_port";
@@ -450,6 +451,7 @@ void Streamer::Impl::OnOpen() {
       hardware[k] = v;
     }
     device_info[kHardwareField] = hardware;
+    device_info[kDeviceTypeField] = config_.device_type;
     device_info[kOpenwrtDeviceIdField] = config_.openwrt_device_id;
     device_info[kOpenwrtAddrField] = config_.openwrt_addr;
     device_info[kAdbPortField] = config_.adb_port;

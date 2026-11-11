@@ -38,6 +38,9 @@ class ClientHandler;
 struct StreamerConfig {
   // The id with which to register with the operator server.
   std::string device_id;
+  // The kind of device (phone, auto, tv, ...), sent to clients so they can
+  // adapt their UI.
+  std::string device_type;
 
   // The port on which the client files are being served
   int client_files_port;
